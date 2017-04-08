@@ -5,6 +5,9 @@
     <div class="post">
       <div class="date">
         {{ post.yayinlama_tarihi }}
+        {% if user.is_authenticated %}
+          <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
       </div>
       <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.baslik }}</a></h1>
       <p>{{ post.yazi|linebreaks }}</p>
